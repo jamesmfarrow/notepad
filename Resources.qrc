@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/imgs">
+        <file>bitmaps/Actions-document-save-as-icon.png</file>
+        <file>bitmaps/Close-2-icon.png</file>
+        <file>bitmaps/Copy-icon.png</file>
+        <file>bitmaps/Cut-icon.png</file>
+        <file>bitmaps/Files-New-File-icon.png</file>
+        <file>bitmaps/open-file-icon.png</file>
+        <file>bitmaps/Paste-icon.png</file>
+        <file>bitmaps/printer-icon.png</file>
+        <file>bitmaps/Redo-icon.png</file>
+        <file>bitmaps/Undo-icon.png</file>
+    </qresource>
+</RCC>
