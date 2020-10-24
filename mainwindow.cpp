@@ -65,6 +65,7 @@ void MainWindow::on_actionSave_as_triggered()
     QString text = ui->textEdit->toPlainText();
     out << text;
     file.close();
+    dirty = false;
 }
 
 void MainWindow::on_actionPrint_triggered()
@@ -91,8 +92,11 @@ void MainWindow::save() {
 void MainWindow::on_actionExit_triggered()
 {
     if(ui->textEdit->document()->isEmpty()) QApplication::quit();
-    else if(ui->textEdit->document()->isModified()) { save(); QApplication::quit(); }
-    else QApplication::quit();
+    else if(ui->textEdit->document()->isModified()) { std::cout << "mofified" << std::endl; save(); QApplication::quit(); }
+    else if(dirty && !(ui->textEdit->document()->isModified())) { std::cout << "dirty&&" << std::endl; QApplication::quit(); }
+    else if(dirty) { std::cout << "dirty" << std::endl; save(); QApplication::quit(); }
+
+    QApplication::quit();
 }
 
 

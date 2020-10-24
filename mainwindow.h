@@ -27,6 +27,7 @@ public:
     bool not_saved{true};
 
     void save();
+    bool dirty{true};
 
 private slots:
     void on_actionNew_triggered();
