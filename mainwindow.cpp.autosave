@@ -60,7 +60,7 @@ void MainWindow::on_actionSave_as_triggered()
             return;
         }
     //currentFile = filename;
-    //setWindowTitle(appname + filename);
+    setWindowTitle(appname + filename);
     QTextStream out(&file);
     QString text = ui->textEdit->toPlainText();
     out << text;

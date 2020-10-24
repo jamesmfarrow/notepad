@@ -49,11 +49,9 @@ private slots:
 
     void on_actionRedo_triggered();
 
-    bool on_textEdit_textChanged();
-
 private:
     Ui::MainWindow *ui;
-    QString currentFile;
-    //QTextDocument currentFile;
+    QString appname{"Notepad\t"};
+    QString currentFile{""};
 };
 #endif // MAINWINDOW_H
