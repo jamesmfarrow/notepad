@@ -39,7 +39,7 @@ void MainWindow::on_actionOpen_triggered()
         save();
     }
     //set 'filename' string to name of file to open
-    QString filename = QFileDialog::getOpenFileName((this), "Open the file");
+    QString filename = QFileDialog::getOpenFileName(this, tr("Open file"), "", tr("text file (*.txt);;All Files (*)"));
     //object for reading/writing files
     QFile file(filename);
     //currentFile = filename;
@@ -56,7 +56,7 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSave_as_triggered()
 {
-    QString filename = QFileDialog::getSaveFileName(this, "Save as");
+    QString filename = QFileDialog::getSaveFileName(this, tr("Save file"), "", tr("text file (*.txt);;All Files (*)"));
     QFile file(filename); //object for reading/writing files
         if(!file.open(QFile::WriteOnly | QFile::Text)) {
             QMessageBox::warning(this, "Warning", "Can not save file " + file.errorString());
