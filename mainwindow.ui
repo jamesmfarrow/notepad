@@ -44,7 +44,7 @@
      <string>File</string>
     </property>
     <addaction name="actionNew"/>
-    <addaction name="actionOPen"/>
+    <addaction name="actionOpen"/>
     <addaction name="actionSave_as"/>
     <addaction name="actionPrint"/>
     <addaction name="actionExit"/>
@@ -73,7 +73,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionNew"/>
-   <addaction name="actionOPen"/>
+   <addaction name="actionOpen"/>
    <addaction name="actionSave_as"/>
    <addaction name="actionPrint"/>
   </widget>
@@ -87,7 +87,7 @@
     <string>New</string>
    </property>
   </action>
-  <action name="actionOPen">
+  <action name="actionOpen">
    <property name="icon">
     <iconset resource="Resources.qrc">
      <normaloff>:/imgs/bitmaps/open-file-icon.png</normaloff>:/imgs/bitmaps/open-file-icon.png</iconset>

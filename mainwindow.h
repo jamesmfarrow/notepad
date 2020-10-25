@@ -27,12 +27,11 @@ public:
     bool not_saved{true};
 
     void save();
-    bool dirty{true};
 
 private slots:
     void on_actionNew_triggered();
 
-    void on_actionOPen_triggered();
+    void on_actionOpen_triggered();
 
     void on_actionSave_as_triggered();
 
@@ -49,6 +48,8 @@ private slots:
     void on_actionUndo_triggered();
 
     void on_actionRedo_triggered();
+
+    void on_textEdit_textChanged();
 
 private:
     Ui::MainWindow *ui;

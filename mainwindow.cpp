@@ -33,8 +33,11 @@ void MainWindow::on_actionNew_triggered()
     setWindowTitle(appname + currentFile);
 }
 
-void MainWindow::on_actionOPen_triggered()
+void MainWindow::on_actionOpen_triggered()
 {
+    if(ui->textEdit->document()->isModified()) {
+        save();
+    }
     //set 'filename' string to name of file to open
     QString filename = QFileDialog::getOpenFileName((this), "Open the file");
     //object for reading/writing files
@@ -65,7 +68,7 @@ void MainWindow::on_actionSave_as_triggered()
     QString text = ui->textEdit->toPlainText();
     out << text;
     file.close();
-    dirty = false;
+    ui->textEdit->document()->setModified(false);
 }
 
 void MainWindow::on_actionPrint_triggered()
@@ -92,11 +95,9 @@ void MainWindow::save() {
 void MainWindow::on_actionExit_triggered()
 {
     if(ui->textEdit->document()->isEmpty()) QApplication::quit();
-    else if(ui->textEdit->document()->isModified()) { std::cout << "mofified" << std::endl; save(); QApplication::quit(); }
-    else if(dirty && !(ui->textEdit->document()->isModified())) { std::cout << "dirty&&" << std::endl; QApplication::quit(); }
-    else if(dirty) { std::cout << "dirty" << std::endl; save(); QApplication::quit(); }
+    else if(ui->textEdit->document()->isModified() ) { std::cout << "mofified&&" << std::endl; save(); QApplication::quit(); }
+    else QApplication::quit();
 
-    QApplication::quit();
 }
 
 
@@ -123,4 +124,13 @@ void MainWindow::on_actionUndo_triggered()
 void MainWindow::on_actionRedo_triggered()
 {
     ui->textEdit->redo();
+}
+
+void MainWindow::on_textEdit_textChanged()
+{
+    int wordCount = ui->textEdit->toPlainText().split(QRegExp("(\\s|\\n|\\r|[_,;:.\"!?'/=+*&^%$£@#<>()-]|[0-9])+")
+                                                      , QString::SkipEmptyParts).count();
+    QString wc;
+    wc.setNum(wordCount);
+    ui->statusBar->showMessage("Word Count " + wc);
 }
