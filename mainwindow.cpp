@@ -9,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
     //set text edit widget (central) to take up all screen space
     this->setCentralWidget(ui->textEdit);
     setWindowTitle(appname);
+    connect(ui->actionSelect_Font, &QAction::triggered, this, &MainWindow::selectFont);
+    connect(ui->action, &QAction::triggered, this, &MainWindow::setFontBold);
+    connect(ui->actionUnderline, &QAction::triggered, this, &MainWindow::setFontUnderline);
+    connect(ui->actionItalic, &QAction::triggered, this, &MainWindow::setFontItalic);
 }
 
 MainWindow::~MainWindow()
@@ -126,6 +130,7 @@ void MainWindow::on_actionRedo_triggered()
     ui->textEdit->redo();
 }
 
+
 void MainWindow::on_textEdit_textChanged()
 {
     int wordCount = ui->textEdit->toPlainText().split(QRegExp("(\\s|\\n|\\r|[_,;:.\"!?'/=+*&^%$£@#<>()-]|[0-9])+")
@@ -133,4 +138,41 @@ void MainWindow::on_textEdit_textChanged()
     QString wc;
     wc.setNum(wordCount);
     ui->statusBar->showMessage("Word Count " + wc);
+}
+
+/*void MainWindow::setFontBold(bool bold) {
+    bold ? ui->textEdit->setFontWeight(QFont::Bold) :  ui->textEdit->setFontWeight(QFont::Normal);
+}*/
+
+void MainWindow::setFontUnderline(bool underline) {
+    ui->textEdit->setFontUnderline(underline);
+}
+
+void MainWindow::setFontItalic(bool italic) {
+    ui->textEdit->setFontItalic(italic);
+}
+
+
+void MainWindow::selectFont()
+{
+    bool fontSelected;
+    QFont font = QFontDialog::getFont(&fontSelected, this);
+    if (fontSelected)
+        ui->textEdit->setFont(font);
+}
+
+
+
+
+/*void MainWindow::on_actionSelect_Font_changed()
+{
+    bool fontSelected;
+    QFont font = QFontDialog::getFont(&fontSelected, this);
+    if (fontSelected)
+        ui->textEdit->setFont(font);
+}*/
+
+void MainWindow::on_actionBold_2_triggered(bool bold)
+{
+    bold ? ui->textEdit->setFontWeight(QFont::Bold) :  ui->textEdit->setFontWeight(QFont::Normal)
 }

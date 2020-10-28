@@ -10,5 +10,9 @@
         <file>bitmaps/printer-icon.png</file>
         <file>bitmaps/Redo-icon.png</file>
         <file>bitmaps/Undo-icon.png</file>
+        <file>bitmaps/bold.png</file>
+        <file>bitmaps/Minio_Text_Editor_Bold-09-128.png</file>
+        <file>bitmaps/Minio_Text_Editor_Bold-10-128.png</file>
+        <file>bitmaps/Fonts.png</file>
     </qresource>
 </RCC>

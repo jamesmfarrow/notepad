@@ -10,6 +10,8 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QPushButton>
+#include <QFont>
+#include <QFontDialog>
 #include <iostream>
 
 
@@ -50,6 +52,18 @@ private slots:
     void on_actionRedo_triggered();
 
     void on_textEdit_textChanged();
+
+    void selectFont();
+
+    //void setFontBold(bool bold);
+
+    void setFontUnderline(bool underline);
+
+    void setFontItalic(bool italic);
+
+    //void on_actionSelect_Font_changed();
+
+    void on_actionBold_2_triggered(bool checked);
 
 private:
     Ui::MainWindow *ui;
