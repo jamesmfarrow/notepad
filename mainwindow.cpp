@@ -9,10 +9,6 @@ MainWindow::MainWindow(QWidget *parent)
     //set text edit widget (central) to take up all screen space
     this->setCentralWidget(ui->textEdit);
     setWindowTitle(appname);
-    connect(ui->actionSelect_Font, &QAction::triggered, this, &MainWindow::selectFont);
-    connect(ui->action, &QAction::triggered, this, &MainWindow::setFontBold);
-    connect(ui->actionUnderline, &QAction::triggered, this, &MainWindow::setFontUnderline);
-    connect(ui->actionItalic, &QAction::triggered, this, &MainWindow::setFontItalic);
 }
 
 MainWindow::~MainWindow()
@@ -99,7 +95,7 @@ void MainWindow::save() {
 void MainWindow::on_actionExit_triggered()
 {
     if(ui->textEdit->document()->isEmpty()) QApplication::quit();
-    else if(ui->textEdit->document()->isModified() ) { std::cout << "mofified&&" << std::endl; save(); QApplication::quit(); }
+    else if(ui->textEdit->document()->isModified() ) { save(); QApplication::quit(); }
     else QApplication::quit();
 
 }
@@ -140,39 +136,26 @@ void MainWindow::on_textEdit_textChanged()
     ui->statusBar->showMessage("Word Count " + wc);
 }
 
-/*void MainWindow::setFontBold(bool bold) {
-    bold ? ui->textEdit->setFontWeight(QFont::Bold) :  ui->textEdit->setFontWeight(QFont::Normal);
-}*/
+void MainWindow::on_actionSelect_Font_triggered()
+{
+    bool fontSelected;
+    QFont font = QFontDialog::getFont(&fontSelected, this);
+    if (fontSelected)
+        ui->textEdit->setFont(font);
+}
 
-void MainWindow::setFontUnderline(bool underline) {
+void MainWindow::on_actionBold_triggered(bool bold)
+{
+    bold ? ui->textEdit->setFontWeight(QFont::Bold) :  ui->textEdit->setFontWeight(QFont::Normal);
+}
+
+void MainWindow::on_actionUnderline_triggered(bool underline)
+{
     ui->textEdit->setFontUnderline(underline);
 }
 
-void MainWindow::setFontItalic(bool italic) {
+
+void MainWindow::on_actionItalic_triggered(bool italic)
+{
     ui->textEdit->setFontItalic(italic);
-}
-
-
-void MainWindow::selectFont()
-{
-    bool fontSelected;
-    QFont font = QFontDialog::getFont(&fontSelected, this);
-    if (fontSelected)
-        ui->textEdit->setFont(font);
-}
-
-
-
-
-/*void MainWindow::on_actionSelect_Font_changed()
-{
-    bool fontSelected;
-    QFont font = QFontDialog::getFont(&fontSelected, this);
-    if (fontSelected)
-        ui->textEdit->setFont(font);
-}*/
-
-void MainWindow::on_actionBold_2_triggered(bool bold)
-{
-    bold ? ui->textEdit->setFontWeight(QFont::Bold) :  ui->textEdit->setFontWeight(QFont::Normal)
 }

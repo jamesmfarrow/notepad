@@ -58,9 +58,6 @@
     <addaction name="actionCut"/>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
-    <addaction name="actionBold_2"/>
-    <addaction name="actionUnderline_2"/>
-    <addaction name="actionItalic_2"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
@@ -176,6 +173,9 @@
    </property>
   </action>
   <action name="actionBold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normalon>:/imgs/bitmaps/bold.png</normalon>
@@ -189,6 +189,9 @@
    </property>
   </action>
   <action name="actionUnderline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normalon>:/imgs/bitmaps/Minio_Text_Editor_Bold-10-128.png</normalon>
@@ -199,6 +202,9 @@
    </property>
   </action>
   <action name="actionItalic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset>
      <normalon>:/imgs/bitmaps/Minio_Text_Editor_Bold-09-128.png</normalon>
@@ -212,21 +218,6 @@
    </property>
    <property name="shortcutVisibleInContextMenu">
     <bool>true</bool>
-   </property>
-  </action>
-  <action name="actionBold_2">
-   <property name="text">
-    <string>Bold</string>
-   </property>
-  </action>
-  <action name="actionUnderline_2">
-   <property name="text">
-    <string>Underline</string>
-   </property>
-  </action>
-  <action name="actionItalic_2">
-   <property name="text">
-    <string>Italic</string>
    </property>
   </action>
   <action name="actionSelect_Font">

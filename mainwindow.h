@@ -53,17 +53,13 @@ private slots:
 
     void on_textEdit_textChanged();
 
-    void selectFont();
+    void on_actionBold_triggered(bool checked);
 
-    //void setFontBold(bool bold);
+    void on_actionSelect_Font_triggered();
 
-    void setFontUnderline(bool underline);
+    void on_actionUnderline_triggered(bool underline);
 
-    void setFontItalic(bool italic);
-
-    //void on_actionSelect_Font_changed();
-
-    void on_actionBold_2_triggered(bool checked);
+    void on_actionItalic_triggered(bool italic);
 
 private:
     Ui::MainWindow *ui;
